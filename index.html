@@ -8,12 +8,12 @@
 <meta property="og:title" content="TAMTUI Sahel · L'ordre dans les champs, la clarté dans les comptes">
 <meta property="og:description" content="Application mobile pour les producteurs et logiciels de gestion pour les organisations. Même sans Internet.">
 <meta property="og:image" content="assets/logo-tamtui-sahel.png">
-<meta name="theme-color" content="#4a2511">
+<meta name="theme-color" content="#0b7a3e">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
-:root { --brun:#4a2511; --brun2:#6b3a1c; --orange:#f39a2b; --orange2:#b86a0c; --vert:#0b7a3e; --vert2:#075a2d; --violet:#6b3fa0;
-  --creme:#faf6f0; --sable:#f3eadf; --texte:#2a1d14; --doux:#6b5a4d; --bord:#e8dccd; --blanc:#fff; }
+:root { --fonce:#0a4a28; --brun:#4a2511; --brun2:#6b3a1c; --orange:#f39a2b; --orange2:#b86a0c; --vert:#0b7a3e; --vert2:#075a2d; --violet:#6b3fa0;
+  --creme:#f2f8f3; --sable:#e3f1e7; --texte:#2a1d14; --doux:#6b5a4d; --bord:#d6e7db; --blanc:#fff; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:72px; }
 body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--texte); background:var(--blanc); line-height:1.55; }
@@ -35,36 +35,36 @@ nav.menu a.bouton:hover { background:var(--vert2); }
 .burger { display:none; margin-left:auto; background:none; border:1px solid var(--bord); border-radius:10px; width:44px; height:40px; font-size:20px; cursor:pointer; }
 
 /* Accueil */
-.heros { background:radial-gradient(circle at 85% 20%, #f39a2b22 0 220px, transparent 221px), radial-gradient(circle at 8% 90%, #0b7a3e18 0 260px, transparent 261px), var(--creme); padding:70px 0 60px; }
+.heros { background:radial-gradient(circle at 85% 20%, #0b7a3e1c 0 220px, transparent 221px), radial-gradient(circle at 8% 90%, #f39a2b1a 0 260px, transparent 261px), var(--creme); padding:70px 0 60px; }
 .heros .conteneur { display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; }
 .surtitre { display:inline-block; font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--orange2); }
-.heros h1 { font-size:clamp(32px,5vw,52px); line-height:1.08; margin:12px 0 16px; color:var(--brun); letter-spacing:-.01em; }
+.heros h1 { font-size:clamp(32px,5vw,52px); line-height:1.08; margin:12px 0 16px; color:var(--fonce); letter-spacing:-.01em; }
 .heros h1 em { font-style:normal; color:var(--vert); }
 .heros p.chapeau { font-size:18px; color:var(--doux); max-width:560px; margin:0 0 26px; }
 .actions { display:flex; gap:12px; flex-wrap:wrap; }
 .btn { display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:750; border-radius:12px; padding:13px 20px; font-size:16px; border:2px solid transparent; }
 .btn.vert { background:var(--vert); color:#fff; } .btn.vert:hover { background:var(--vert2); }
-.btn.brun { background:var(--brun); color:#fff; } .btn.brun:hover { background:var(--brun2); }
-.btn.contour { border-color:var(--brun); color:var(--brun); background:#fff; } .btn.contour:hover { background:var(--sable); }
-.atouts { display:flex; gap:10px 18px; flex-wrap:wrap; margin-top:26px; font-size:14px; font-weight:650; color:var(--brun); }
+.btn.brun { background:var(--fonce); color:#fff; } .btn.brun:hover { background:#06331b; }
+.btn.contour { border-color:var(--fonce); color:var(--fonce); background:#fff; } .btn.contour:hover { background:var(--sable); }
+.atouts { display:flex; gap:10px 18px; flex-wrap:wrap; margin-top:26px; font-size:14px; font-weight:650; color:var(--fonce); }
 .atouts span::before { content:"✔ "; color:var(--vert); }
-.heros .visuel { background:#fff; border-radius:28px; padding:34px 30px; box-shadow:0 30px 60px #4a251122; text-align:center; }
+.heros .visuel { background:#fff; border-radius:28px; padding:34px 30px; box-shadow:0 30px 60px #0a4a2822; text-align:center; }
 .heros .visuel img { margin:0 auto; width:100%; max-width:380px; }
-.heros .visuel p { margin:14px 0 0; font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--brun); }
+.heros .visuel p { margin:14px 0 0; font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--fonce); }
 .heros .visuel .metiers { font-size:11px; letter-spacing:.12em; color:var(--doux); margin-top:6px; }
 
 /* Sections */
 section.bloc { padding:76px 0; }
 section.bloc.sable { background:var(--creme); }
 .titre { text-align:center; max-width:760px; margin:0 auto 42px; }
-.titre h2 { font-size:clamp(26px,3.6vw,38px); line-height:1.15; margin:10px 0 12px; color:var(--brun); }
+.titre h2 { font-size:clamp(26px,3.6vw,38px); line-height:1.15; margin:10px 0 12px; color:var(--fonce); }
 .titre p { color:var(--doux); font-size:17px; margin:0; }
 
 /* Deux produits */
 .deux { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-.carte { background:#fff; border:1px solid var(--bord); border-radius:22px; padding:30px; box-shadow:0 14px 34px #4a25110d; display:flex; flex-direction:column; }
+.carte { background:#fff; border:1px solid var(--bord); border-radius:22px; padding:30px; box-shadow:0 14px 34px #0a4a280d; display:flex; flex-direction:column; }
 .carte .ico { font-size:38px; }
-.carte h3 { margin:10px 0 4px; font-size:23px; color:var(--brun); }
+.carte h3 { margin:10px 0 4px; font-size:23px; color:var(--fonce); }
 .carte .pour { font-weight:750; color:var(--orange2); font-size:14px; text-transform:uppercase; letter-spacing:.08em; }
 .carte ul { padding-left:20px; margin:14px 0 20px; } .carte li { margin:5px 0; }
 .carte .prix { margin-top:auto; padding-top:16px; border-top:1px dashed var(--bord); display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
@@ -73,24 +73,24 @@ section.bloc.sable { background:var(--creme); }
 
 /* Application mobile */
 .mobile { display:grid; grid-template-columns:.8fr 1.2fr; gap:46px; align-items:center; }
-.telephone { width:270px; max-width:100%; margin:0 auto; background:#1b120c; border-radius:42px; padding:12px; box-shadow:0 30px 60px #4a251133; }
+.telephone { width:270px; max-width:100%; margin:0 auto; background:#1b120c; border-radius:42px; padding:12px; box-shadow:0 30px 60px #0a4a2833; }
 .telephone .ecran { background:var(--creme); border-radius:32px; overflow:hidden; min-height:520px; }
-.telephone .barre { background:var(--brun); color:#fff; padding:22px 16px 16px; text-align:center; }
+.telephone .barre { background:var(--vert); color:#fff; padding:22px 16px 16px; text-align:center; }
 .telephone .barre img { width:54px; margin:0 auto 6px; background:#fff; border-radius:50%; padding:4px; }
-.telephone .barre b { display:block; letter-spacing:.12em; } .telephone .barre small { font-size:11px; color:#f6d9b3; }
+.telephone .barre b { display:block; letter-spacing:.12em; } .telephone .barre small { font-size:11px; color:#cdebd7; }
 .telephone .tuiles { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:14px; }
-.telephone .tuiles div { background:#fff; border:1px solid var(--bord); border-radius:14px; padding:10px 4px; text-align:center; font-size:11px; font-weight:700; color:var(--brun); }
+.telephone .tuiles div { background:#fff; border:1px solid var(--bord); border-radius:14px; padding:10px 4px; text-align:center; font-size:11px; font-weight:700; color:var(--fonce); }
 .telephone .tuiles span { display:block; font-size:22px; }
 .telephone .alerte { margin:4px 14px 16px; background:#fff1dc; border:1px solid #f0cf9c; border-radius:12px; padding:9px 11px; font-size:11.5px; color:#7a4a0a; }
 .fonctions { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:22px 0; }
 .fonctions div { background:#fff; border:1px solid var(--bord); border-radius:14px; padding:13px; font-size:14px; }
-.fonctions b { display:block; color:var(--brun); }
+.fonctions b { display:block; color:var(--fonce); }
 .principe { background:var(--vert2); color:#fff; border-radius:16px; padding:16px 18px; font-size:15px; }
 .principe b { color:#ffd58a; }
 .offre { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
 .offre div { flex:1; min-width:200px; border-radius:14px; padding:14px 16px; border:1px solid var(--bord); background:#fff; }
-.offre b { display:block; font-size:18px; color:var(--brun); }
-.bientot { display:inline-block; margin-top:18px; background:var(--sable); border:1px solid var(--bord); border-radius:999px; padding:8px 16px; font-weight:700; color:var(--brun); font-size:14px; }
+.offre b { display:block; font-size:18px; color:var(--fonce); }
+.bientot { display:inline-block; margin-top:18px; background:var(--sable); border:1px solid var(--bord); border-radius:999px; padding:8px 16px; font-weight:700; color:var(--fonce); font-size:14px; }
 
 /* Logiciels */
 .vedette { background:linear-gradient(135deg,#3d1f63,var(--violet)); color:#fff; border-radius:24px; padding:32px; display:grid; grid-template-columns:1.3fr .7fr; gap:26px; align-items:center; margin-bottom:22px; }
@@ -101,41 +101,41 @@ section.bloc.sable { background:var(--creme); }
 .vedette .aPartir b { display:block; font-size:28px; } .vedette .aPartir small { color:var(--doux); }
 .quatre { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 .logiciel { background:#fff; border:1px solid var(--bord); border-top:5px solid var(--c); border-radius:18px; padding:20px; }
-.logiciel .ico { font-size:30px; } .logiciel h4 { margin:6px 0 2px; font-size:17px; color:var(--brun); }
+.logiciel .ico { font-size:30px; } .logiciel h4 { margin:6px 0 2px; font-size:17px; color:var(--fonce); }
 .logiciel .act { font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--c); }
 .logiciel p { font-size:14px; color:var(--doux); margin:10px 0 0; }
 .plus { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:22px; }
-.plus div { background:var(--creme); border-radius:14px; padding:14px; font-size:14px; } .plus b { display:block; color:var(--brun); }
+.plus div { background:var(--creme); border-radius:14px; padding:14px; font-size:14px; } .plus b { display:block; color:var(--fonce); }
 
 /* Tarifs */
 .tableau { overflow-x:auto; border:1px solid var(--bord); border-radius:18px; background:#fff; }
 table { width:100%; border-collapse:collapse; font-size:15px; min-width:620px; }
-th { background:var(--brun); color:#fff; text-align:left; padding:12px 14px; font-size:13px; letter-spacing:.06em; }
+th { background:var(--vert2); color:#fff; text-align:left; padding:12px 14px; font-size:13px; letter-spacing:.06em; }
 td { padding:12px 14px; border-bottom:1px solid #f1e8de; }
 td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
 tr:last-child td { border-bottom:0; }
 td small { color:var(--doux); }
 .tarifs2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px; }
-.conditions { background:var(--creme); border-radius:18px; padding:20px 22px; } .conditions h4 { margin:0 0 8px; color:var(--brun); } .conditions ul { margin:0; padding-left:20px; } .conditions li { margin:5px 0; }
+.conditions { background:var(--creme); border-radius:18px; padding:20px 22px; } .conditions h4 { margin:0 0 8px; color:var(--fonce); } .conditions ul { margin:0; padding-left:20px; } .conditions li { margin:5px 0; }
 .note { font-size:13px; color:var(--doux); margin-top:12px; }
 
 /* Société */
 .societe { display:grid; grid-template-columns:.9fr 1.1fr; gap:40px; align-items:center; }
-.societe .carteSoc { background:#fff; border:1px solid var(--bord); border-radius:22px; padding:30px; text-align:center; box-shadow:0 14px 34px #4a25110d; }
+.societe .carteSoc { background:#fff; border:1px solid var(--bord); border-radius:22px; padding:30px; text-align:center; box-shadow:0 14px 34px #0a4a280d; }
 .societe .carteSoc img { max-width:320px; margin:0 auto; }
-.societe .carteSoc p { letter-spacing:.2em; text-transform:uppercase; font-size:12px; color:var(--brun); margin:12px 0 4px; }
-.metiersListe { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:12px; } .metiersListe span { background:var(--sable); border-radius:999px; padding:6px 12px; font-size:13px; font-weight:700; color:var(--brun); }
+.societe .carteSoc p { letter-spacing:.2em; text-transform:uppercase; font-size:12px; color:var(--fonce); margin:12px 0 4px; }
+.metiersListe { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:12px; } .metiersListe span { background:var(--sable); border-radius:999px; padding:6px 12px; font-size:13px; font-weight:700; color:var(--fonce); }
 .valeurs { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; }
-.valeurs div { border-left:4px solid var(--orange); background:var(--creme); border-radius:10px; padding:12px 14px; font-size:14px; } .valeurs b { display:block; color:var(--brun); }
+.valeurs div { border-left:4px solid var(--orange); background:var(--creme); border-radius:10px; padding:12px 14px; font-size:14px; } .valeurs b { display:block; color:var(--fonce); }
 
 /* Contact */
-.contact { background:var(--brun); color:#fff; }
-.contact .titre h2 { color:#fff; } .contact .titre p { color:#f1dcc4; }
+.contact { background:linear-gradient(135deg,var(--fonce),var(--vert)); color:#fff; }
+.contact .titre h2 { color:#fff; } .contact .titre p { color:#d3ecdb; }
 .contacts { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .contacts a, .contacts div { display:block; background:#ffffff12; border:1px solid #ffffff2e; border-radius:18px; padding:22px; color:#fff; text-decoration:none; text-align:center; }
 .contacts a:hover { background:#ffffff1f; }
-.contacts span { font-size:30px; } .contacts b { display:block; font-size:19px; margin-top:6px; } .contacts small { color:#f1dcc4; }
-footer.pied { background:#2a160a; color:#d9c3ab; font-size:13px; padding:26px 0; text-align:center; }
+.contacts span { font-size:30px; } .contacts b { display:block; font-size:19px; margin-top:6px; } .contacts small { color:#d3ecdb; }
+footer.pied { background:#05301a; color:#c4dccc; font-size:13px; padding:26px 0; text-align:center; }
 footer.pied a { color:#ffd58a; }
 
 @media (max-width:960px) {
@@ -224,7 +224,7 @@ footer.pied a { color:#ffd58a; }
       <div class="principe"><b>Hors connexion d'abord.</b> Les fiches, les diagnostics, les calculs et vos données restent dans le téléphone. Tout se synchronise quand le réseau revient.</div>
       <div class="offre">
         <div><b>Découverte gratuite</b>Des fiches d'exemple, un diagnostic et les alertes météo graves.</div>
-        <div><b>2 500 FCFA pour 6 mois</b>ou <b>3 500 FCFA pour un an</b>. Tout le contenu, les outils, l'assistant et la météo détaillée. Carte à code, un téléphone.</div>
+        <div><b>2 500 FCFA · 6 mois</b><b>3 500 FCFA · 1 an</b>Tout le contenu, les outils, l'assistant et la météo détaillée. Carte à code, un téléphone.</div>
       </div>
       <span class="bientot">🤖 Android · Bientôt sur Google Play · Pour l'obtenir dès maintenant : +227 82 46 54 40</span>
     </div>
@@ -253,7 +253,7 @@ footer.pied a { color:#ffd58a; }
 <section class="bloc sable" id="tarifs"><div class="conteneur">
   <div class="titre"><span class="surtitre">Prix clairs</span><h2>Tarifs</h2><p>Logiciels pour ordinateur : licence perpétuelle par ordinateur, en FCFA hors taxes. Application mobile : activation de 6 mois ou d'un an, par téléphone.</p></div>
   <div class="tableau"><table>
-    <thead><tr><th>Édition</th><th>Pour qui</th><th class="n">Logiciel métier<br><small style="color:#f6d9b3">1 activité</small></th><th class="n">SAHEL 360<br><small style="color:#f6d9b3">2 activités</small></th><th class="n">SAHEL 360<br><small style="color:#f6d9b3">3 activités</small></th><th class="n">SAHEL 360<br><small style="color:#f6d9b3">4 activités</small></th></tr></thead>
+    <thead><tr><th>Édition</th><th>Pour qui</th><th class="n">Logiciel métier<br><small style="color:#cdebd7">1 activité</small></th><th class="n">SAHEL 360<br><small style="color:#cdebd7">2 activités</small></th><th class="n">SAHEL 360<br><small style="color:#cdebd7">3 activités</small></th><th class="n">SAHEL 360<br><small style="color:#cdebd7">4 activités</small></th></tr></thead>
     <tbody><tr><td><b>START</b></td><td><small>Démarrer simplement</small></td><td class="n"><b>65 000</b></td><td class="n"><small>—</small></td><td class="n"><small>—</small></td><td class="n"><small>—</small></td></tr><tr><td><b>GESTION</b></td><td><small>Gérer au quotidien</small></td><td class="n"><b>100 000</b></td><td class="n">230 000</td><td class="n">345 000</td><td class="n">460 000</td></tr><tr><td><b>PRODUCTION</b></td><td><small>Suivre toute la production</small></td><td class="n"><b>190 000</b></td><td class="n">435 000</td><td class="n">655 000</td><td class="n">875 000</td></tr><tr><td><b>INTELLIGENCE</b></td><td><small>Analyser et prévoir</small></td><td class="n"><b>310 000</b></td><td class="n">715 000</td><td class="n">1 070 000</td><td class="n">1 425 000</td></tr><tr><td><b>ENTERPRISE</b></td><td><small>Grandes organisations</small></td><td class="n"><b>460 000</b></td><td class="n">1 060 000</td><td class="n">1 585 000</td><td class="n">2 115 000</td></tr></tbody>
   </table></div>
   <div class="tarifs2">
@@ -281,7 +281,7 @@ footer.pied a { color:#ffd58a; }
       <div class="metiersListe"><span>Commerce général</span><span>Fournitures de matériels</span><span>Prestation</span></div></div>
     <div>
       <span class="surtitre">La société</span>
-      <h2 style="font-size:clamp(26px,3.6vw,36px);color:var(--brun);margin:10px 0 12px">TAMTUI SAHEL, une entreprise du Niger</h2>
+      <h2 style="font-size:clamp(26px,3.6vw,36px);color:var(--fonce);margin:10px 0 12px">TAMTUI SAHEL, une entreprise du Niger</h2>
       <p>TAMTUI SAHEL est une société nigérienne de commerce général, de fournitures de matériels et de prestations. Elle conçoit TAMTUI pour ceux qui nourrissent le Sahel : les petits producteurs et les organisations qui les accompagnent.</p>
       <p>Notre conviction : <b>ce qui est noté ne se perd pas</b>. Un producteur qui connaît ses chiffres décide mieux, négocie mieux et obtient plus facilement un crédit.</p>
       <div class="valeurs">
