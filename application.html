@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>L'application TAMTUI · Le conseiller de poche des producteurs</title>
 <meta name="description" content="TAMTUI conseille les agriculteurs, éleveurs, maraîchers et pisciculteurs : fiches pratiques, météo et alertes, santé des animaux, prix du marché. Même sans réseau. 2 500 FCFA pour 6 mois.">
+<link rel="alternate" hreflang="fr" href="application.html">
+<link rel="alternate" hreflang="en" href="en/application.html">
 <meta property="og:title" content="L'application TAMTUI · Le conseiller de poche des producteurs">
 <meta property="og:description" content="TAMTUI conseille les agriculteurs, éleveurs, maraîchers et pisciculteurs : fiches pratiques, météo et alertes, santé des animaux, prix du marché. Même sans réseau. 2 500 FCFA pour 6 mois.">
 <meta property="og:image" content="assets/logo-tamtui-sahel.png">
@@ -44,6 +46,9 @@ nav.menu a.actif::after { content:""; position:absolute; left:12px; right:12px; 
 body.choco nav.menu a.actif::after { background:var(--choco); }
 nav.menu a.bouton { background:var(--chocoN); color:#fff; margin-left:10px; padding:10px 18px; }
 nav.menu a.bouton:hover { background:var(--chocoF); }
+.langues { display:flex; gap:2px; border:1px solid var(--trait); border-radius:999px; padding:3px; margin-left:10px; }
+.langues a { padding:5px 10px !important; border-radius:999px !important; font-size:12.5px !important; font-weight:700 !important; letter-spacing:.06em; }
+.langues a.actif { background:var(--chocoN); color:#fff !important; } .langues a.actif::after { display:none; }
 .burger { display:none; margin-left:auto; background:none; border:1px solid var(--trait); border-radius:10px; width:46px; height:42px; cursor:pointer; color:var(--texte); }
 
 /* Boutons */
@@ -250,7 +255,7 @@ td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-
 @media (max-width:820px) {
   .burger { display:grid; place-items:center; }
   nav.menu { display:none; position:absolute; top:76px; left:0; right:0; background:#fff; flex-direction:column; align-items:stretch; padding:12px 20px 20px; border-bottom:1px solid var(--trait); box-shadow:0 20px 30px -10px #0002; }
-  nav.menu.ouvert { display:flex; } nav.menu a.bouton { margin:8px 0 0; text-align:center; } nav.menu a.actif::after { display:none; }
+  nav.menu.ouvert { display:flex; } nav.menu .langues { margin:10px 0 0; align-self:flex-start; } nav.menu a.bouton { margin:8px 0 0; text-align:center; } nav.menu a.actif::after { display:none; }
   .panneaux, .univers { grid-template-columns:1fr; }
   section.bloc { padding:72px 0; } .heros { padding:40px 0 70px; } .bandeau { padding:64px 0; }
   .chemin { grid-template-columns:1fr; } .chemin .sep { transform:rotate(90deg); margin:0 auto; }
@@ -273,25 +278,23 @@ td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-
 <body class="">
 <div class="tricolore"></div>
 <header class="haut"><div class="conteneur">
-  <a class="marque" href="index.html" aria-label="TAMTUI Sahel, accueil"><img src="assets/logo-tamtui-sahel.png" alt="TAMTUI Sahel" width="96" height="52"></a>
+  <a class="marque" href="index.html" aria-label="TAMTUI Sahel"><img src="assets/logo-tamtui-sahel.png" alt="TAMTUI Sahel" width="96" height="52"></a>
   <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-  <nav class="menu" aria-label="Menu principal">
+  <nav class="menu" aria-label="Menu">
     <a href="index.html">Accueil</a>
     <a href="application.html" class="actif">L'application</a>
     <a href="logiciels.html">Les logiciels</a>
     <a href="fournitures.html">Fournitures</a>
     <a href="index.html#societe">La société</a>
     <a class="bouton" href="#contact">Nous contacter</a>
+    <span class="langues" aria-label="Langue"><a href="application.html" hreflang="fr" lang="fr" title="Français" data-langue="fr" class="actif" aria-current="true">FR</a><a href="en/application.html" hreflang="en" lang="en" title="English" data-langue="en">EN</a></span>
   </nav>
 </div></header>
 <main>
 
 <section class="bandeau v1 app"><div class="conteneur grille">
   <div><div class="fil"><a href="index.html">Accueil</a> › L'application</div>
-    <span class="num">01 · Conseiller</span>
-    <h1>L'application TAMTUI</h1>
-    <p class="sous">« Votre conseiller des champs, des troupeaux et des poissons. »</p>
-    <p>Des conseils simples, au bon moment, pour les agriculteurs, les éleveurs, les maraîchers et les pisciculteurs. Même loin du réseau.</p>
+    <span class="num">01 · Conseiller</span><h1>L'application TAMTUI</h1><p class="sous">« Votre conseiller des champs, des troupeaux et des poissons. »</p><p>Des conseils simples, au bon moment, pour les agriculteurs, les éleveurs, les maraîchers et les pisciculteurs. Même loin du réseau.</p>
     <div class="actions"><a class="btn clair" href="#obtenir">Obtenir l'application <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="btn translucide" href="#tarifs">Voir les prix</a></div></div>
   <div class="telephone" aria-hidden="true"><div class="ecranTel">
     <div class="barre"><img src="assets/symbole-tamtui.png" alt=""><b>TAMTUI</b><small>pour votre bien-être</small></div>
@@ -301,8 +304,7 @@ td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-
 </div></section>
 
 <section class="bloc vertT"><div class="conteneur">
-  <div class="entete"><span class="surtitre">Ce que fait l'application</span><h2>Tout ce qu'il faut savoir, dans la poche</h2>
-    <p>Neuf outils réunis dans une seule application, écrite en langage simple. Les langues nationales sont en préparation.</p></div>
+  <div class="entete"><span class="surtitre">Ce que fait l'application</span><h2>Tout ce qu'il faut savoir, dans la poche</h2><p>Neuf outils réunis dans une seule application, écrite en langage simple. Les langues nationales sont en préparation.</p></div>
   <div class="fonctions"><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h10"/><path d="M12 21v-9"/><path d="M12 12c0-4.5 3-7.5 8.5-7.5 0 4.5-3 7.5-8.5 7.5z"/><path d="M12 14.5c0-3.5-2.2-5.8-6.5-5.8 0 3.5 2.2 5.8 6.5 5.8z"/></svg><b>Champs</b><span>Calendrier, « pluie utile » pour semer, besoin en eau des cultures.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg><b>Jardin</b><span>La quantité d'eau à arroser, chaque jour, selon la météo.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><b>Troupeau</b><span>Effectifs, rappels de vaccins, eau nécessaire selon la chaleur.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12c3.2-5 9.5-6.2 14.5-3L21 6v12l-4.5-3C11.5 18.2 5.2 17 2 12z"/><circle cx="7" cy="11" r=".8"/></svg><b>Poissons</b><span>Bassins, ration du jour et densité conseillée.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><b>Météo</b><span>Prévisions à 7 jours et alertes : chaleur, fortes pluies, vent, sécheresse.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><polyline points="7 12 10 12 11.5 9.5 13 14 14.5 12 17 12"/></svg><b>Santé</b><span>Diagnostics guidés sans réseau, puis mise en relation avec un agent ou un vétérinaire.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg><b>Marché</b><span>Les prix relevés sur le terrain par des relais.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg><b>Assistant</b><span>Posez vos questions par la voix, le texte ou une photo.</span></div><div><svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="14" y2="13"/></svg><b>Carnet</b><span>Notez vos dépenses et vos recettes.</span></div></div>
   <div class="principe"><span class="rond"><svg class="ic" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><line x1="12" y1="20" x2="12.01" y2="20"/><line x1="3" y1="3" x2="21" y2="21"/></svg></span><div><h3>Hors connexion d'abord</h3><p>Les fiches, les diagnostics, les calculs et vos données restent dans le téléphone. Tout se synchronise quand le réseau revient, sans doublon.</p></div></div>
 </div></section>
@@ -310,31 +312,21 @@ td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-
 <section class="bloc fondVert vertT" id="tarifs"><div class="conteneur">
   <div class="entete centre"><span class="surtitre">Prix</span><h2>Simple et accessible</h2><p>Une activation par téléphone, avec une carte à code. Pas d'abonnement caché.</p></div>
   <div class="offres">
-    <div class="offre"><span class="nom">Découverte</span><div class="montant">Gratuit</div>
-      <ul><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Des fiches d'exemple</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Un diagnostic guidé</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Les alertes météo graves</li></ul></div>
-    <div class="offre"><span class="nom">6 mois</span><div class="montant">2 500 <small>FCFA</small></div>
-      <ul><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Tout le contenu et les outils</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>L'assistant</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>La météo détaillée</li></ul></div>
-    <div class="offre mise"><span class="badge">Le meilleur prix</span><span class="nom">1 an</span><div class="montant">3 500 <small>FCFA</small></div>
-      <ul><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Tout le contenu et les outils</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>L'assistant</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>La météo détaillée</li></ul></div>
+    <div class="offre"><span class="nom">Découverte</span><div class="montant">Gratuit</div><ul><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Des fiches d'exemple</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Un diagnostic guidé</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Les alertes météo graves</li></ul></div>
+    <div class="offre"><span class="nom">6 mois</span><div class="montant">2 500 <small>FCFA</small></div><ul><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Tout le contenu et les outils</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>L'assistant</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>La météo détaillée</li></ul></div>
+    <div class="offre mise"><span class="badge">Le meilleur prix</span><span class="nom">1 an</span><div class="montant">3 500 <small>FCFA</small></div><ul><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Tout le contenu et les outils</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>L'assistant</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>La météo détaillée</li></ul></div>
   </div>
   <p class="note centre">Coopératives, ONG et entreprises : des packs d'activations pour vos producteurs sont disponibles sur demande.</p>
 </div></section>
 
 <section class="bloc vertT" id="obtenir"><div class="conteneur">
   <div class="entete"><span class="surtitre">Comment l'obtenir</span><h2>En trois étapes</h2></div>
-  <div class="pas" style="grid-template-columns:repeat(3,1fr)">
-    <div><b>Contactez-nous</b><span>Par téléphone au +227 82 46 54 40, ou à notre bureau de Niamey. L'application arrive bientôt sur Google Play.</span></div>
-    <div><b>Installez TAMTUI</b><span>Sur un téléphone Android, en quelques minutes.</span></div>
-    <div><b>Activez avec votre carte</b><span>Tapez le code de votre carte : l'application est débloquée, même sans réseau.</span></div>
-  </div>
+  <div class="pas" style="grid-template-columns:repeat(3,1fr)"><div><b>Contactez-nous</b><span>Par téléphone au +227 82 46 54 40, ou à notre bureau de Niamey. L'application arrive bientôt sur Google Play.</span></div><div><b>Installez TAMTUI</b><span>Sur un téléphone Android, en quelques minutes.</span></div><div><b>Activez avec votre carte</b><span>Tapez le code de votre carte : l'application est débloquée, même sans réseau.</span></div></div>
 </div></section>
 
-<section class="bloc" style="padding-top:0"><div class="conteneur">
-  <div class="passerelle vv"><span class="rond"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><div><h3>Vous accompagnez des producteurs ?</h3><p>Les logiciels TAMTUI organisent les coopératives, les unions et les projets.</p></div><a class="btn vert" href="logiciels.html">Les logiciels <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-</div></section>
+<section class="bloc" style="padding-top:0"><div class="conteneur"><div class="passerelle vv"><span class="rond"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><div><h3>Vous accompagnez des producteurs ?</h3><p>Les logiciels TAMTUI organisent les coopératives, les unions et les projets.</p></div><a class="btn vert" href="logiciels.html">Les logiciels <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div></section>
 <section class="bloc contact" id="contact"><div class="conteneur grille">
-  <div><span class="surtitre">Parlons de votre besoin</span><h2>Une question, un devis, une démonstration ?</h2>
-    <p>Appelez-nous, écrivez-nous ou passez nous voir à Niamey. Nous vous répondons rapidement, avec une solution adaptée à votre réalité.</p></div>
+  <div><span class="surtitre">Parlons de votre besoin</span><h2>Une question, un devis, une démonstration ?</h2><p>Appelez-nous, écrivez-nous ou passez nous voir à Niamey. Nous vous répondons rapidement, avec une solution adaptée à votre réalité.</p></div>
   <div class="coord">
     <a href="tel:+22782465440"><span class="rond"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><b>+227 82 46 54 40</b><small>Appeler</small></span></a>
     <a href="tel:+22781355348"><span class="rond"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><b>+227 81 35 53 48</b><small>Deuxième ligne</small></span></a>
@@ -346,7 +338,7 @@ td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-
 <footer class="pied"><div class="conteneur">
   <div class="grille">
     <div><img src="assets/logo-tamtui-sahel.png" alt="TAMTUI Sahel" width="85" height="46"><p>TAMTUI SAHEL — société experte fournisseur. Conseiller, organiser, équiper : du champ au bureau, nous accompagnons ceux qui font avancer le Sahel.</p></div>
-    <div><b>Nos activités</b><a href="application.html">L'application TAMTUI</a><a href="logiciels.html">Les logiciels TAMTUI</a><a href="fournitures.html">Fournitures &amp; services</a><a href="https://tamtui.github.io/TAMTUI-TELECHARGEMENTS/">Téléchargements officiels</a></div>
+    <div><b>Nos activités</b><a href="application.html">L'application TAMTUI</a><a href="logiciels.html">Les logiciels TAMTUI</a><a href="fournitures.html">Fournitures & services</a><a href="https://tamtui.github.io/TAMTUI-TELECHARGEMENTS/">Téléchargements officiels</a></div>
     <div><b>Contact</b><a href="tel:+22782465440">+227 82 46 54 40</a><a href="tel:+22781355348">+227 81 35 53 48</a><a href="mailto:ali.tamtui@gmail.com">ali.tamtui@gmail.com</a><a href="#contact">Niamey, quartier Francophonie, Niger</a></div>
   </div>
   <div class="bas"><span>© 2026 TAMTUI SAHEL · Commerce général · Fournitures de matériels · Prestation</span><span>Fait au Niger</span></div>
@@ -355,6 +347,8 @@ td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-
 const b = document.querySelector(".burger"), m = document.querySelector("nav.menu");
 b.addEventListener("click", () => { const o = m.classList.toggle("ouvert"); b.setAttribute("aria-expanded", o); });
 m.addEventListener("click", e => { if (e.target.closest("a")) { m.classList.remove("ouvert"); b.setAttribute("aria-expanded", false); } });
+document.querySelectorAll("[data-langue]").forEach(a => a.addEventListener("click", () => { try { localStorage.setItem("tamtui-langue", a.dataset.langue); } catch (e) {} }));
+
 </script>
 </body>
 </html>
