@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAMTUI Agri-numérique · Application et logiciels agro-pastoraux</title>
+<meta name="description" content="L'application TAMTUI conseille les producteurs, même sans réseau. Les logiciels TAMTUI organisent les coopératives : membres, récoltes, stocks, ventes, bilans. Agriculture, élevage, pisciculture, maraîchage.">
+<meta property="og:title" content="TAMTUI Agri-numérique · Application et logiciels agro-pastoraux">
+<meta property="og:description" content="L'application TAMTUI conseille les producteurs, même sans réseau. Les logiciels TAMTUI organisent les coopératives : membres, récoltes, stocks, ventes, bilans. Agriculture, élevage, pisciculture, maraîchage.">
+<meta property="og:image" content="assets/logo-tamtui-sahel.png">
+<meta name="theme-color" content="#0b7a3e">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --vert:#0b7a3e; --vert2:#075a2d; --vertF:#0a4a28; --vertC:#f2f8f3; --vertB:#d6e7db;
+  --choco:#845a4a; --chocoF:#5a3a2e; --chocoT:#3b241b; --beige:#e4cbb2; --beigeC:#f8f1ea; --chocoB:#e8d6c6;
+  --orange:#f39a2b; --orange2:#b86a0c; --texte:#23201d; --doux:#6a5f57; --blanc:#fff; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:76px; }
+body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--texte); background:#fff; line-height:1.6; }
+img { max-width:100%; height:auto; display:block; }
+a { color:inherit; }
+h1, h2, h3 { font-family:"Playfair Display",Georgia,"Times New Roman",serif; font-weight:700; letter-spacing:-.005em; }
+.conteneur { max-width:1180px; margin:0 auto; padding:0 20px; }
+.tricolore { height:5px; background:linear-gradient(90deg,var(--orange) 0 33.3%,var(--chocoF) 33.3% 66.6%,var(--vert) 66.6%); }
+.surtitre { display:inline-block; font-size:12.5px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--orange2); }
+.grille > *, .duo > *, .pole > *, .deux > *, .trois > *, .quatre > *, .cinq > * { min-width:0; }
+
+/* En-tête */
+header.haut { position:sticky; top:0; z-index:30; background:#fffffff4; backdrop-filter:blur(8px); border-bottom:1px solid #eee4da; }
+header.haut .conteneur { display:flex; align-items:center; gap:16px; height:72px; }
+header.haut .marque img { height:54px; width:auto; }
+nav.menu { margin-left:auto; display:flex; gap:2px; align-items:center; }
+nav.menu a { text-decoration:none; font-weight:650; font-size:15px; padding:8px 11px; border-radius:9px; color:var(--texte); }
+nav.menu a:hover { background:var(--beigeC); }
+nav.menu a.actif { color:var(--vert); } body.choco nav.menu a.actif { color:var(--choco); }
+nav.menu a.pVert::before { content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--vert); margin-right:6px; vertical-align:1px; }
+nav.menu a.pChoco::before { content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--choco); margin-right:6px; vertical-align:1px; }
+nav.menu a.bouton { background:var(--vert); color:#fff; margin-left:6px; } nav.menu a.bouton:hover { background:var(--vert2); }
+body.choco nav.menu a.bouton { background:var(--choco); } body.choco nav.menu a.bouton:hover { background:var(--chocoF); }
+.burger { display:none; margin-left:auto; background:none; border:1px solid #e4d8cc; border-radius:10px; width:44px; height:40px; font-size:20px; cursor:pointer; }
+
+/* Boutons */
+.actions { display:flex; gap:12px; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; font-weight:750; border-radius:12px; padding:13px 20px; font-size:16px; border:2px solid transparent; line-height:1.2; }
+.btn.vert { background:var(--vert); color:#fff; } .btn.vert:hover { background:var(--vert2); }
+.btn.choco { background:var(--choco); color:#fff; } .btn.choco:hover { background:var(--chocoF); }
+.btn.contourV { border-color:var(--vert); color:var(--vert); background:#fff; }
+.btn.contourC { border-color:var(--choco); color:var(--choco); background:#fff; }
+.btn.blanc { background:#fff; color:var(--chocoT); }
+
+/* Sections */
+section.bloc { padding:80px 0; }
+.fondVert { background:var(--vertC); } .fondBeige { background:var(--beigeC); }
+.titre { text-align:center; max-width:780px; margin:0 auto 44px; }
+.titre h2 { font-size:clamp(28px,3.8vw,42px); line-height:1.15; margin:10px 0 12px; }
+.titre p { color:var(--doux); font-size:17px; margin:0; }
+.vertT h2, .vertT h3 { color:var(--vertF); } .chocoT h2, .chocoT h3 { color:var(--chocoT); }
+
+/* ACCUEIL */
+.heros { background:linear-gradient(180deg,var(--beigeC),#fff); padding:56px 0 70px; overflow:hidden; }
+.heros .grille { display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center; }
+.heros h1 { font-size:clamp(34px,5vw,56px); line-height:1.07; margin:14px 0 18px; color:var(--chocoT); }
+.heros h1 em { font-style:normal; color:var(--vert); }
+.heros .chapeau { font-size:18px; color:var(--doux); margin:0 0 28px; max-width:560px; }
+.heros .visuel { position:relative; }
+.heros .visuel .photo { border-radius:28px; overflow:hidden; box-shadow:0 30px 60px #3b241b30; aspect-ratio:4/3.2; }
+.heros .visuel .photo img { width:100%; height:100%; object-fit:cover; }
+.heros .visuel .logoCarte { position:absolute; left:-26px; bottom:-26px; background:#fff; border-radius:20px; padding:16px 20px; box-shadow:0 18px 40px #3b241b2a; width:min(260px,60%); text-align:center; }
+.heros .visuel .logoCarte small { display:block; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--chocoF); margin-top:6px; }
+.poles { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+.pole { border-radius:26px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 18px 40px #3b241b14; background:#fff; border:1px solid #eee4da; }
+.pole .image { position:relative; aspect-ratio:16/8; overflow:hidden; }
+.pole .image img { width:100%; height:100%; object-fit:cover; }
+.pole .image .etiquette { position:absolute; left:18px; top:18px; color:#fff; font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; padding:7px 13px; border-radius:999px; }
+.pole.v .etiquette { background:var(--vert); } .pole.c .etiquette { background:var(--choco); }
+.pole .corps { padding:26px 28px 30px; display:flex; flex-direction:column; flex:1; }
+.pole h3 { font-size:27px; margin:0 0 8px; } .pole.v h3 { color:var(--vertF); } .pole.c h3 { color:var(--chocoT); }
+.pole p { color:var(--doux); margin:0 0 14px; }
+.pole ul { list-style:none; padding:0; margin:0 0 22px; display:grid; gap:7px; }
+.pole li { padding-left:26px; position:relative; } .pole li::before { content:"✔"; position:absolute; left:0; font-weight:800; } .pole.v li::before { color:var(--vert); } .pole.c li::before { color:var(--choco); }
+.pole .actions { margin-top:auto; }
+.ecran { width:100%; height:100%; display:grid; place-items:center; background:radial-gradient(circle at 75% 25%, #ffffff22 0 90px, transparent 91px), linear-gradient(135deg,var(--vertF),var(--vert)); color:#fff; text-align:center; padding:20px; }
+.ecran b { font-family:"Playfair Display",Georgia,serif; font-size:clamp(22px,3vw,30px); display:block; } .ecran span { font-size:34px; letter-spacing:10px; }
+.synergie { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.synergie div { background:#fff; border-radius:18px; padding:22px; border:1px solid #eee4da; }
+.synergie b { display:block; font-size:17px; margin:8px 0 4px; color:var(--chocoT); } .synergie span.ico { font-size:28px; }
+.exemple { margin-top:22px; border-radius:20px; padding:22px 26px; background:linear-gradient(90deg,var(--chocoF),var(--choco) 55%,var(--vert)); color:#fff; font-size:16.5px; }
+.exemple b { color:#ffd9a3; }
+.duo { display:grid; grid-template-columns:.95fr 1.05fr; gap:46px; align-items:center; }
+.photoArrondie { border-radius:26px; overflow:hidden; box-shadow:0 24px 50px #3b241b22; } .photoArrondie img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+.metiers { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; } .metiers span { background:var(--beigeC); border:1px solid var(--chocoB); border-radius:999px; padding:6px 13px; font-size:13.5px; font-weight:700; color:var(--chocoF); }
+.valeurs { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+.valeurs div { border-left:4px solid var(--orange); background:var(--beigeC); border-radius:10px; padding:12px 14px; font-size:14.5px; } .valeurs b { display:block; color:var(--chocoT); }
+
+/* Contact */
+.contact { background:linear-gradient(135deg,var(--chocoT),var(--chocoF) 55%,var(--vertF)); color:#fff; }
+.contact .titre h2 { color:#fff; } .contact .titre p { color:#ecdccd; } .contact .surtitre { color:#ffd9a3; }
+.contacts { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.contacts a, .contacts div { display:block; background:#ffffff12; border:1px solid #ffffff30; border-radius:18px; padding:22px 16px; color:#fff; text-decoration:none; text-align:center; }
+.contacts a:hover { background:#ffffff20; }
+.contacts span { font-size:28px; } .contacts b { display:block; font-size:17px; margin-top:6px; overflow-wrap:anywhere; } .contacts small { color:#ecdccd; }
+footer.pied { background:#211510; color:#cbb9a9; font-size:13px; padding:28px 0; text-align:center; }
+footer.pied a { color:#ffd9a3; } footer.pied .liens { margin-top:6px; }
+
+/* Bandeau de page (agri, fournitures) */
+.bandeau { position:relative; color:#fff; padding:86px 0 78px; overflow:hidden; }
+.bandeau.v { background:radial-gradient(circle at 88% 15%, #ffffff1a 0 180px, transparent 181px), linear-gradient(135deg,var(--vertF),var(--vert)); }
+.bandeau.c { background:linear-gradient(90deg,#3b241be8,#5a3a2ec7 55%,#845a4a66), url(assets/photos/accueil-bureau.jpg) center/cover; }
+.bandeau h1 { font-size:clamp(34px,5vw,56px); line-height:1.08; margin:12px 0 14px; max-width:760px; }
+.bandeau p { font-size:18px; max-width:640px; color:#f2ebe4; margin:0 0 26px; }
+.bandeau .surtitre { color:#ffd9a3; }
+.fil { font-size:13.5px; color:#ffffffc0; } .fil a { color:#fff; }
+
+/* AGRI */
+.deux { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.carte { background:#fff; border:1px solid var(--vertB); border-radius:22px; padding:28px; box-shadow:0 14px 34px #0a4a280d; display:flex; flex-direction:column; }
+.carte .ico { font-size:36px; } .carte h3 { margin:8px 0 4px; font-size:24px; color:var(--vertF); }
+.carte .pour { font-weight:800; color:var(--orange2); font-size:13px; text-transform:uppercase; letter-spacing:.1em; }
+.carte ul { padding-left:20px; margin:12px 0 18px; } .carte li { margin:4px 0; }
+.carte .prix { margin-top:auto; padding-top:16px; border-top:1px dashed var(--vertB); display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+.carte .prix b { font-size:20px; color:var(--vert2); } .carte .prix small { display:block; color:var(--doux); font-size:13px; }
+.mobile { display:grid; grid-template-columns:.8fr 1.2fr; gap:46px; align-items:center; }
+.telephone { width:270px; max-width:100%; margin:0 auto; background:#14241a; border-radius:42px; padding:12px; box-shadow:0 30px 60px #0a4a2833; }
+.telephone .ecranTel { background:var(--vertC); border-radius:32px; overflow:hidden; min-height:520px; }
+.telephone .barre { background:var(--vert); color:#fff; padding:22px 16px 16px; text-align:center; }
+.telephone .barre img { width:54px; margin:0 auto 6px; background:#fff; border-radius:50%; padding:4px; }
+.telephone .barre b { display:block; letter-spacing:.12em; } .telephone .barre small { font-size:11px; color:#cdebd7; }
+.telephone .tuiles { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:14px; }
+.telephone .tuiles div { background:#fff; border:1px solid var(--vertB); border-radius:14px; padding:10px 4px; text-align:center; font-size:11px; font-weight:700; color:var(--vertF); }
+.telephone .tuiles span { display:block; font-size:22px; }
+.telephone .alerte { margin:4px 14px 16px; background:#fff1dc; border:1px solid #f0cf9c; border-radius:12px; padding:9px 11px; font-size:11.5px; color:#7a4a0a; }
+.trois { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:20px 0; }
+.trois div { background:#fff; border:1px solid var(--vertB); border-radius:14px; padding:13px; font-size:14px; } .trois b { display:block; color:var(--vertF); }
+.principe { background:var(--vert2); color:#fff; border-radius:16px; padding:16px 18px; font-size:15px; } .principe b { color:#ffd58a; }
+.offre { display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+.offre div { flex:1; min-width:200px; border-radius:14px; padding:14px 16px; border:1px solid var(--vertB); background:#fff; }
+.offre b { display:block; font-size:17px; color:var(--vertF); }
+.bientot { display:inline-block; margin-top:16px; background:#fff; border:1px solid var(--vertB); border-radius:999px; padding:8px 16px; font-weight:700; color:var(--vertF); font-size:14px; }
+.vedette { background:linear-gradient(135deg,#3d1f63,#6b3fa0); color:#fff; border-radius:24px; padding:32px; display:grid; grid-template-columns:1.3fr .7fr; gap:26px; align-items:center; margin-bottom:22px; }
+.vedette h3 { margin:6px 0 8px; font-size:28px; color:#fff; } .vedette p { color:#ece3f7; margin:0 0 14px; } .vedette .surtitre { color:#ffd58a; }
+.vedette .acts { display:flex; gap:8px; flex-wrap:wrap; } .vedette .acts span { background:#ffffff22; border:1px solid #ffffff44; border-radius:999px; padding:5px 12px; font-size:14px; font-weight:650; }
+.vedette .aPartir { background:#fff; color:#6b3fa0; border-radius:18px; padding:20px; text-align:center; } .vedette .aPartir b { display:block; font-size:28px; } .vedette .aPartir small { color:var(--doux); }
+.quatre { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.logiciel { background:#fff; border:1px solid var(--vertB); border-top:5px solid var(--c); border-radius:18px; padding:20px; }
+.logiciel .ico { font-size:30px; } .logiciel h4 { margin:6px 0 2px; font-size:17px; color:var(--vertF); }
+.logiciel .act { font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--c); } .logiciel p { font-size:14px; color:var(--doux); margin:10px 0 0; }
+.plus { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; }
+.plus div { background:var(--vertC); border-radius:14px; padding:14px; font-size:14px; } .plus b { display:block; color:var(--vertF); }
+.tableau { overflow-x:auto; border:1px solid var(--vertB); border-radius:18px; background:#fff; }
+table { width:100%; border-collapse:collapse; font-size:15px; min-width:620px; }
+th { background:var(--vert2); color:#fff; text-align:left; padding:12px 14px; font-size:13px; letter-spacing:.05em; }
+td { padding:12px 14px; border-bottom:1px solid #e7f0e9; } tr:last-child td { border-bottom:0; }
+td.n, th.n { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; } td small { color:var(--doux); }
+.tarifs2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px; }
+.conditions { background:#fff; border:1px solid var(--vertB); border-radius:18px; padding:20px 22px; } .conditions h4 { margin:0 0 8px; color:var(--vertF); } .conditions ul { margin:0; padding-left:20px; } .conditions li { margin:5px 0; }
+.note { font-size:13px; color:var(--doux); margin-top:12px; }
+.passerelle { display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap; border-radius:22px; padding:26px 30px; }
+.passerelle.versC { background:var(--beigeC); border:1px solid var(--chocoB); } .passerelle.versV { background:var(--vertC); border:1px solid var(--vertB); }
+.passerelle h3 { margin:0 0 4px; font-size:22px; } .passerelle p { margin:0; color:var(--doux); }
+.passerelle.versC h3 { color:var(--chocoT); } .passerelle.versV h3 { color:var(--vertF); }
+
+/* FOURNITURES */
+.univers { display:grid; gap:28px; }
+.univ { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:26px; overflow:hidden; border:1px solid var(--chocoB); box-shadow:0 18px 40px #3b241b12; }
+.univ:nth-child(even) .images { order:2; }
+.univ .images { display:grid; gap:4px; min-height:300px; background:var(--beige); }
+.univ .images.g1 { grid-template-columns:1fr; } .univ .images.g2 { grid-template-columns:1fr 1fr; } .univ .images.g3 { grid-template-columns:1fr 1fr 1fr; }
+.univ .images img { width:100%; height:100%; object-fit:cover; }
+.univ .texte { padding:34px 36px; display:flex; flex-direction:column; justify-content:center; }
+.univ .num { font-family:"Playfair Display",Georgia,serif; font-size:15px; color:var(--orange2); font-weight:700; letter-spacing:.1em; }
+.univ h3 { font-size:30px; margin:6px 0 10px; color:var(--chocoT); }
+.univ p { margin:0 0 12px; color:var(--doux); }
+.univ .exemples { display:flex; gap:7px; flex-wrap:wrap; margin:4px 0 18px; } .univ .exemples span { background:var(--beigeC); border:1px solid var(--chocoB); border-radius:999px; padding:5px 12px; font-size:13px; font-weight:650; color:var(--chocoF); }
+.univ .lien { font-weight:800; color:var(--choco); text-decoration:none; } .univ .lien:hover { text-decoration:underline; }
+.cinq { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+.cinq div { background:#fff; border:1px solid var(--chocoB); border-radius:16px; padding:18px 14px; text-align:center; font-weight:700; color:var(--chocoT); font-size:14.5px; } .cinq span { display:block; font-size:28px; margin-bottom:6px; }
+.etapes { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; counter-reset:e; }
+.etapes div { background:#fff; border-radius:18px; padding:22px; border:1px solid var(--chocoB); position:relative; }
+.etapes div::before { counter-increment:e; content:counter(e); display:grid; place-items:center; width:38px; height:38px; border-radius:50%; background:var(--choco); color:#fff; font-weight:800; margin-bottom:10px; }
+.etapes b { display:block; color:var(--chocoT); font-size:16.5px; } .etapes p { margin:4px 0 0; color:var(--doux); font-size:14.5px; }
+.ctaDevis { border-radius:26px; padding:38px; display:grid; grid-template-columns:1.2fr .8fr; gap:26px; align-items:center; color:#fff; background:linear-gradient(90deg,#3b241bf0,#5a3a2ed9), url(assets/photos/salle-reunion.jpg) center/cover; }
+.ctaDevis h2 { margin:0 0 8px; font-size:clamp(26px,3.4vw,36px); } .ctaDevis p { margin:0; color:#ecdccd; }
+.ctaDevis .actions { justify-content:flex-end; }
+
+@media (max-width:980px) {
+  .heros .grille, .duo, .mobile, .vedette, .tarifs2, .univ, .ctaDevis { grid-template-columns:1fr; }
+  .univ:nth-child(even) .images { order:0; }
+  .synergie, .quatre, .plus, .etapes, .contacts { grid-template-columns:1fr 1fr; }
+  .cinq { grid-template-columns:repeat(3,1fr); }
+  .trois { grid-template-columns:1fr 1fr; }
+  .heros .visuel { margin:10px 16px 26px; }
+  .ctaDevis .actions { justify-content:flex-start; }
+}
+@media (max-width:780px) {
+  .burger { display:block; }
+  nav.menu { display:none; position:absolute; top:72px; left:0; right:0; background:#fff; flex-direction:column; align-items:stretch; padding:10px 16px 16px; border-bottom:1px solid #eee4da; box-shadow:0 14px 24px #0001; }
+  nav.menu.ouvert { display:flex; } nav.menu a.bouton { margin:6px 0 0; text-align:center; }
+  .poles, .deux, .valeurs { grid-template-columns:1fr; }
+  section.bloc { padding:58px 0; } .heros { padding:34px 0 50px; } .bandeau { padding:60px 0 54px; }
+  .conteneur { padding:0 16px; }
+  .univ .texte { padding:26px 22px; } .univ .images { min-height:220px; }
+  .ctaDevis { padding:28px 22px; }
+}
+@media (max-width:520px) {
+  .synergie, .quatre, .plus, .etapes, .contacts, .trois { grid-template-columns:1fr; }
+  .cinq { grid-template-columns:1fr 1fr; }
+  .btn { width:100%; }
+  .heros .visuel .logoCarte { left:-8px; bottom:-18px; }
+  .carte, .pole .corps { padding:22px 18px; }
+}
+</style>
+</head>
+<body class="">
+<div class="tricolore"></div>
+<header class="haut"><div class="conteneur">
+  <a class="marque" href="index.html" aria-label="TAMTUI Sahel, accueil"><img src="assets/logo-tamtui-sahel.png" alt="TAMTUI Sahel" width="100" height="54"></a>
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  <nav class="menu" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    <a href="agri.html" class="pVert actif">Agri-numérique</a>
+    <a href="fournitures.html" class="pChoco">Fournitures &amp; services</a>
+    <a href="index.html#societe" class="">La société</a>
+    <a href="#contact" class="">Contact</a>
+    <a class="bouton" href="https://tamtui.github.io/TAMTUI-TELECHARGEMENTS/">Télécharger</a>
+  </nav>
+</div></header>
+<main>
+
+<section class="bandeau v"><div class="conteneur">
+  <div class="fil"><a href="index.html">Accueil</a> › Pôle Agri-numérique</div>
+  <span class="surtitre">Conçu au Sahel, pour le Sahel</span>
+  <h1>L'ordre dans les champs, la clarté dans les comptes.</h1>
+  <p>L'Afrique avance, mais beaucoup d'exploitations rurales travaillent encore de mémoire ou sur des cahiers qui se perdent. TAMTUI conseille le producteur au quotidien et aide son organisation à tout noter, tout suivre et tout compter.</p>
+  <div class="actions"><a class="btn blanc" href="#application">📱 L'application</a><a class="btn blanc" href="#logiciels">💻 Les logiciels</a><a class="btn blanc" href="#tarifs">Tarifs</a></div>
+</div></section>
+
+<section class="bloc vertT"><div class="conteneur">
+  <div class="titre"><span class="surtitre">Un seul système, deux outils</span><h2>Le conseiller dans la poche, la gestion sur l'ordinateur</h2>
+    <p>Le producteur reçoit des conseils pratiques sur son téléphone. Sa coopérative, son union ou son projet gère l'ensemble sur ordinateur.</p></div>
+  <div class="deux">
+    <div class="carte"><span class="ico">📱</span><span class="pour">Pour le producteur</span><h3>L'application TAMTUI</h3>
+      <p>« Votre conseiller des champs, des troupeaux et des poissons. »</p>
+      <ul><li>Fiches pratiques, météo et alertes</li><li>Diagnostics guidés, même sans réseau</li><li>Calculs : eau, ration, densité</li><li>Assistant : voix, texte ou photo</li></ul>
+      <div class="prix"><div><b>à partir de 2 500 FCFA</b><small>6 mois · 3 500 FCFA pour un an · découverte gratuite</small></div><a class="btn vert" href="#application">Découvrir</a></div></div>
+    <div class="carte"><span class="ico">💻</span><span class="pour">Pour les organisations</span><h3>Les logiciels TAMTUI</h3>
+      <p>Coopératives, unions, fermes, ONG, projets et services techniques.</p>
+      <ul><li>Membres, exploitations, champs et animaux</li><li>Récoltes, stocks, ventes et finances</li><li>Rapports PDF pour les partenaires</li><li>Carte des sites, bilans par activité</li></ul>
+      <div class="prix"><div><b>à partir de 65 000 FCFA</b><small>licence payée une seule fois · essai gratuit 14 jours</small></div><a class="btn vert" href="#logiciels">Découvrir</a></div></div>
+  </div>
+</div></section>
+
+<section class="bloc fondVert vertT" id="application"><div class="conteneur">
+  <div class="titre"><span class="surtitre">📱 Application Android</span><h2>TAMTUI, votre conseiller de poche</h2>
+    <p>Pour les agriculteurs, éleveurs, maraîchers et pisciculteurs : des conseils simples, au bon moment, même loin du réseau.</p></div>
+  <div class="mobile">
+    <div class="telephone" aria-hidden="true"><div class="ecranTel">
+      <div class="barre"><img src="assets/symbole-tamtui.png" alt=""><b>TAMTUI</b><small>pour votre bien-être</small></div>
+      <div class="tuiles"><div><span>🌾</span>Champs</div><div><span>🥬</span>Jardin</div><div><span>🐄</span>Troupeau</div><div><span>🐟</span>Poissons</div><div><span>🌦️</span>Météo</div><div><span>🩺</span>Santé</div><div><span>📈</span>Marché</div><div><span>🎙️</span>Assistant</div><div><span>📒</span>Carnet</div></div>
+      <div class="alerte">🌡️ <b>Alerte chaleur</b> : donnez plus d'eau au troupeau aujourd'hui.</div>
+    </div></div>
+    <div>
+      <div class="trois"><div><b>🌾 Champs</b>Calendrier, « pluie utile » pour semer, besoin en eau.</div><div><b>🥬 Jardin</b>Quantité d'eau à arroser chaque jour.</div><div><b>🐄 Troupeau</b>Effectifs, rappels de vaccins, eau selon la chaleur.</div><div><b>🐟 Poissons</b>Bassins, ration du jour, densité conseillée.</div><div><b>🌦️ Météo</b>Prévisions 7 jours et alertes : chaleur, fortes pluies, vent, sécheresse.</div><div><b>🩺 Santé</b>Diagnostics guidés sans réseau, puis contact d'un vétérinaire ou d'un agent.</div><div><b>📈 Marché</b>Prix relevés sur le terrain par des relais.</div><div><b>🎙️ Assistant</b>Questions par la voix, le texte ou une photo.</div><div><b>📒 Carnet</b>Dépenses et recettes.</div></div>
+      <div class="principe"><b>Hors connexion d'abord.</b> Les fiches, les diagnostics, les calculs et vos données restent dans le téléphone. Tout se synchronise quand le réseau revient.</div>
+      <div class="offre">
+        <div><b>Découverte gratuite</b>Des fiches d'exemple, un diagnostic et les alertes météo graves.</div>
+        <div><b>2 500 FCFA · 6 mois</b><b>3 500 FCFA · 1 an</b>Tout le contenu, les outils, l'assistant et la météo détaillée. Carte à code, un téléphone.</div>
+      </div>
+      <span class="bientot">🤖 Android · Bientôt sur Google Play · Pour l'obtenir dès maintenant : +227 82 46 54 40</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="bloc vertT" id="logiciels"><div class="conteneur">
+  <div class="titre"><span class="surtitre">💻 Windows et Mac</span><h2>Les logiciels de gestion TAMTUI</h2>
+    <p>Des logiciels professionnels pour organiser toute une exploitation ou toute une coopérative. Ils fonctionnent sans Internet et s'achètent une seule fois.</p></div>
+  <div class="vedette">
+    <div><span class="surtitre">Nouveau</span><h3>🌍 TAMTUI SAHEL 360</h3>
+      <p>Toutes vos activités dans un seul logiciel : un socle commun (producteurs, stocks, ventes, finances), les liens entre activités (fumier, fanes, eau des bassins…) et le bilan de chaque activité.</p>
+      <div class="acts"><span>🌾 Cultures</span><span>🐄 Élevage</span><span>🐟 Pisciculture</span><span>🥬 Maraîchage</span></div></div>
+    <div class="aPartir"><small>À partir de</small><b>230 000 FCFA</b><small>2 activités, édition GESTION</small></div>
+  </div>
+  <div class="quatre"><div class="logiciel" style="--c:#2f7d32"><span class="ico">🌾</span><h4>TAMTUI Suite Pro</h4><span class="act">Agriculture</span><p>Producteurs, exploitations, parcelles géolocalisées, cultures par campagne, récoltes, intrants, stocks, ventes et finances.</p></div><div class="logiciel" style="--c:#8a5a14"><span class="ico">🐄</span><h4>TAMTUI Élevage Pro</h4><span class="act">Élevage</span><p>Éleveurs, troupeaux, santé et vaccinations, reproduction, pesées, alimentation, pâturages et production.</p></div><div class="logiciel" style="--c:#1f6fa8"><span class="ico">🐟</span><h4>TAMTUI Pisciculture Pro</h4><span class="act">Pisciculture</span><p>Bassins et cages, lots de poissons, qualité de l'eau, écloserie, croissance, alimentation et récoltes.</p></div><div class="logiciel" style="--c:#c2561b"><span class="ico">🥬</span><h4>TAMTUI Maraîchage Pro</h4><span class="act">Maraîchage</span><p>Parcelles et planches, semences et pépinière, protection, irrigation, fertilisation et récoltes successives.</p></div></div>
+  <div class="plus">
+    <div><b>📴 Sans Internet</b>Tout fonctionne hors connexion.</div>
+    <div><b>🔑 Licence perpétuelle</b>Payée une fois, à vous pour toujours.</div>
+    <div><b>🔄 Mises à jour gratuites</b>Installées automatiquement.</div>
+    <div><b>🆓 Essai 14 jours</b>Téléchargez et essayez sans payer.</div>
+  </div>
+  <div class="actions" style="justify-content:center;margin-top:28px"><a class="btn vert" href="https://tamtui.github.io/TAMTUI-TELECHARGEMENTS/">⬇️ Télécharger et essayer gratuitement</a></div>
+</div></section>
+
+<section class="bloc fondVert vertT" id="tarifs"><div class="conteneur">
+  <div class="titre"><span class="surtitre">Prix clairs</span><h2>Tarifs</h2><p>Logiciels : licence perpétuelle par ordinateur, en FCFA hors taxes. Application : activation de 6 mois ou d'un an, par téléphone.</p></div>
+  <div class="tableau"><table>
+    <thead><tr><th>Édition</th><th>Pour qui</th><th class="n">Logiciel métier<br><small style="color:#cdebd7">1 activité</small></th><th class="n">SAHEL 360<br><small style="color:#cdebd7">2 activités</small></th><th class="n">SAHEL 360<br><small style="color:#cdebd7">3 activités</small></th><th class="n">SAHEL 360<br><small style="color:#cdebd7">4 activités</small></th></tr></thead>
+    <tbody><tr><td><b>START</b></td><td><small>Démarrer simplement</small></td><td class="n"><b>65 000</b></td><td class="n"><small>—</small></td><td class="n"><small>—</small></td><td class="n"><small>—</small></td></tr><tr><td><b>GESTION</b></td><td><small>Gérer au quotidien</small></td><td class="n"><b>100 000</b></td><td class="n">230 000</td><td class="n">345 000</td><td class="n">460 000</td></tr><tr><td><b>PRODUCTION</b></td><td><small>Suivre toute la production</small></td><td class="n"><b>190 000</b></td><td class="n">435 000</td><td class="n">655 000</td><td class="n">875 000</td></tr><tr><td><b>INTELLIGENCE</b></td><td><small>Analyser et prévoir</small></td><td class="n"><b>310 000</b></td><td class="n">715 000</td><td class="n">1 070 000</td><td class="n">1 425 000</td></tr><tr><td><b>ENTERPRISE</b></td><td><small>Grandes organisations</small></td><td class="n"><b>460 000</b></td><td class="n">1 060 000</td><td class="n">1 585 000</td><td class="n">2 115 000</td></tr></tbody>
+  </table></div>
+  <div class="tarifs2">
+    <div class="conditions"><h4>💻 Conditions des logiciels</h4><ul>
+      <li>Ordinateur supplémentaire : <b>−20 %</b></li>
+      <li>Formation (facultative) : <b>30 %</b> du prix, une seule fois</li>
+      <li>Changement d'ordinateur (panne, vol) : <b>40 %</b> du prix</li>
+      <li>Ajouter une activité ou monter d'édition : on paie seulement la différence</li>
+      <li>Mises à jour gratuites, sans abonnement</li>
+      <li>Projets, ONG et services de l'État : <b>sur devis</b></li></ul></div>
+    <div class="conditions"><h4>📱 Application mobile</h4><ul>
+      <li>Découverte <b>gratuite</b></li>
+      <li>Activation pour <b>6 mois : 2 500 FCFA</b></li>
+      <li>Activation pour <b>un an : 3 500 FCFA</b> (le meilleur prix)</li>
+      <li>Par téléphone, vendue par <b>cartes à code</b></li>
+      <li>Packs pour coopératives et ONG : nous contacter</li></ul></div>
+  </div>
+  <p class="note">Les prix des logiciels sont hors taxes ; la TVA s'ajoute selon la réglementation en vigueur.</p>
+</div></section>
+
+<section class="bloc"><div class="conteneur">
+  <div class="passerelle versC"><div><h3>Il vous faut aussi le matériel ?</h3><p>Ordinateurs, imprimantes, tablettes, smartphones pour vos relais, consommables : notre pôle Fournitures vous équipe.</p></div><a class="btn choco" href="fournitures.html">Voir les fournitures</a></div>
+</div></section>
+<section class="bloc contact" id="contact"><div class="conteneur">
+  <div class="titre"><span class="surtitre">Parlons de votre besoin</span><h2>Contact</h2><p>Une démonstration, un devis, une commande ou une question : nous vous répondons rapidement.</p></div>
+  <div class="contacts">
+    <a href="tel:+22782465440"><span>📞</span><b>+227 82 46 54 40</b><small>Appeler</small></a>
+    <a href="tel:+22781355348"><span>📞</span><b>+227 81 35 53 48</b><small>Appeler</small></a>
+    <a href="mailto:ali.tamtui@gmail.com"><span>✉️</span><b>ali.tamtui@gmail.com</b><small>Écrire</small></a>
+    <div><span>📍</span><b>Niamey, quartier Francophonie</b><small>Niger</small></div>
+  </div>
+</div></section>
+</main>
+<div class="tricolore"></div>
+<footer class="pied"><div class="conteneur">
+  <b>TAMTUI SAHEL</b> · Société experte fournisseur · Commerce général · Fournitures de matériels · Prestation · Niamey, quartier Francophonie, Niger
+  <div class="liens"><a href="agri.html">Agri-numérique</a> · <a href="fournitures.html">Fournitures &amp; services</a> · <a href="https://tamtui.github.io/TAMTUI-TELECHARGEMENTS/">Téléchargements officiels</a> · © 2026 TAMTUI SAHEL</div>
+</div></footer>
+<script>
+const b = document.querySelector(".burger"), m = document.querySelector("nav.menu");
+b.addEventListener("click", () => { const o = m.classList.toggle("ouvert"); b.setAttribute("aria-expanded", o); });
+m.addEventListener("click", e => { if (e.target.closest("a")) { m.classList.remove("ouvert"); b.setAttribute("aria-expanded", false); } });
+</script>
+</body>
+</html>
